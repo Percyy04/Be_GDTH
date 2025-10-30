@@ -12,6 +12,9 @@ const allowed = [
   'https://your-frontend.com'     // production- sua sau
 ];
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.use(cors({
   origin: function(origin, cb) {
     // origin === undefined for tools like curl / server-to-server
