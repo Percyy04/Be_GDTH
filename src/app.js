@@ -9,7 +9,10 @@ const app = express();
 // Middleware
 const allowed = [
   'http://localhost:3000',        // dev
-  'https://your-frontend.com'     // production- sua sau
+  'https://giaidieutuhao.site',
+  'https://api.giaidieutuhao.site',
+  'http://giaidieutuhao.site',
+  'http://api.giaidieutuhao.site'// production- sua sau
 ];
 
 app.use(express.json());
