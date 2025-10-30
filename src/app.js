@@ -6,6 +6,23 @@ const config = require('./config/config');
 
 const app = express();
 
+// Middleware
+const cors = require('cors');
+const allowed = [
+  'http://localhost:3000',        // dev
+  'https://your-frontend.com'     // production- sua sau
+];
+
+app.use(cors({
+  origin: function(origin, cb) {
+    // origin === undefined for tools like curl / server-to-server
+    if (!origin) return cb(null, true);
+    if (allowed.indexOf(origin) !== -1) return cb(null, true);
+    return cb(new Error('Not allowed by CORS'));
+  },
+  credentials: true  // nếu cần cookies
+}));
+
 
 // Swagger UI
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs, {
