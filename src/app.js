@@ -7,7 +7,6 @@ const config = require('./config/config');
 const app = express();
 
 // Middleware
-const cors = require('cors');
 const allowed = [
   'http://localhost:3000',        // dev
   'https://your-frontend.com'     // production- sua sau
